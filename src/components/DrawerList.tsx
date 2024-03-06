@@ -30,7 +30,11 @@ const DrawerList = ({ toggleDrawer, open }: Props) => {
   ];
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={() => toggleDrawer(false)}
+    >
       <List>
         {Links.map((item, index) => (
           <ListItem key={index} disablePadding>
@@ -50,7 +54,7 @@ const DrawerList = ({ toggleDrawer, open }: Props) => {
 
   return (
     <>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      <Drawer open={open} onClose={() => toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
     </>
