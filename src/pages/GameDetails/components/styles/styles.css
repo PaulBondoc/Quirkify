@@ -1,0 +1,9 @@
+.swiper-container {
+  mask: linear-gradient(
+    to right,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+}
