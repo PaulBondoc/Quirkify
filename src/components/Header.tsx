@@ -3,11 +3,21 @@ import { Styles } from "../styles/styles";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IconButton } from "@mui/material";
 import { useState } from "react";
-import DrawerList from "./DrawerList";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { MdDeveloperBoard, MdGames } from "react-icons/md";
+import { SiGradleplaypublisher } from "react-icons/si";
+import { FaHome } from "react-icons/fa";
 
 type Links = {
   path: string;
   text: string;
+  Icon: React.ElementType;
 };
 
 const Header = () => {
@@ -18,11 +28,30 @@ const Header = () => {
   };
 
   const Links: Links[] = [
-    { path: "/", text: "Home" },
-    { path: "/developers", text: "Developers" },
-    { path: "/publishers", text: "Publishers" },
-    { path: "/games", text: "Games" },
+    { path: "/", text: "Home", Icon: FaHome },
+    { path: "/developers", text: "Developers", Icon: MdDeveloperBoard },
+    { path: "/publishers", text: "Publishers", Icon: SiGradleplaypublisher },
+    { path: "/games", text: "Games", Icon: MdGames },
   ];
+
+  const DrawerList = (
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <List>
+        {Links.map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <Link to={item.path} className="w-full">
+              <ListItemButton>
+                <ListItemIcon>
+                  <item.Icon className="text-[25px]" />
+                </ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
   return (
     <>
@@ -52,7 +81,9 @@ const Header = () => {
             </IconButton>
           </div>
 
-          <DrawerList toggleDrawer={toggleDrawer} open={open} />
+          <Drawer open={open} onClose={toggleDrawer(false)}>
+            {DrawerList}
+          </Drawer>
         </div>
       </header>
     </>
