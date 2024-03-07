@@ -43,13 +43,13 @@
 }
 
 .scroller[data-speed="fast"] {
-  --_animation-duration: 20s;
-}
-.scroller[data-speed="medium"] {
   --_animation-duration: 30s;
 }
-.scroller[data-speed="slow"] {
+.scroller[data-speed="medium"] {
   --_animation-duration: 40s;
+}
+.scroller[data-speed="slow"] {
+  --_animation-duration: 50s;
 }
 
 @keyframes scroll {
