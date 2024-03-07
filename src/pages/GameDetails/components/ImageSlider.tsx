@@ -43,6 +43,7 @@ const ImageSlider = ({ screenshots }: Props) => {
                 src={image.image}
                 alt={image.image}
                 className={`${gameDetailsStyle.sliderImage}`}
+                loading="lazy"
               />
             </SwiperSlide>
           ))}

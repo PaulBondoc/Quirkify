@@ -34,6 +34,7 @@ const GamingAdventure = () => {
                     src={item.src}
                     alt=""
                     className={`${Styles.adventureImage} ${item.style}`}
+                    loading="lazy"
                   />
                 </div>
               ))}
